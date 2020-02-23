@@ -1,0 +1,22 @@
+p
+    strong
+    | 旅行１日目:
+    = @trip.date
+span.uk-label.uk-label-success
+    |グルメ
+p.uk-margin-bottom
+    |　朝ごはん：
+    = @trip.gmorning
+p.uk-margin-bottom
+    |　昼ごはん：
+    = @trip.glunch
+p.uk-margin-bottom
+    |　夜ごはん：
+    = @trip.gdinner
+span.uk-label.uk-label-success
+    | ホテル:
+p.uk-margin-bottom
+    = @trip.hotelname
+span.uk-label.uk-label-success
+    |タイムスケジュール
+= render 'trips/timeschejule'

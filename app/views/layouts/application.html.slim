@@ -1,0 +1,15 @@
+doctype html
+html
+  head
+    title
+      | Sample
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_pack_tag 'application','data-turbolinks-track': 'reload'
+  body
+    header
+      = react_component("navbar/Appbar")
+    main.uk-container
+      = yield
+    footer

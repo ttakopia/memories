@@ -1,0 +1,95 @@
+p#notice
+  = notice
+h1
+  | Trips
+table
+  thead
+    tr
+      th
+        | Triptitle
+      th
+        | Membar
+      th
+        | Startdate
+      th
+        | Enddate
+      th
+        | Place
+      th
+        | B-hotel
+      th
+        | B-flight
+      th
+        | B-food
+      th
+        | Date
+      th
+        | G-morning
+      th
+        | G-lunch
+      th
+        | G-dinner
+      th
+        | Hotelname
+      th
+        | Starttime
+      th
+        | Endtime
+      th
+        | Action
+      th
+        | Route
+      th
+        | Remarks
+      th
+        | Comment
+      th[colspan="3"]
+  tbody
+    - @trips.each do |trip|
+      tr
+        td
+          = trip.triptitle
+        td
+          = trip.membar
+        td
+          = trip.startdate
+        td
+          = trip.enddate
+        td
+          = trip.place
+        td
+          = trip.bhotel
+        td
+          = trip.bflight
+        td
+          = trip.bfood
+        td
+          = trip.date
+        td
+          = trip.gmorning
+        td
+          = trip.glunch
+        td
+          = trip.gdinner
+        td
+          = trip.hotelname
+        td
+          = trip.starttime
+        td
+          = trip.endtime
+        td
+          = trip.action
+        td
+          = trip.route
+        td
+          = trip.remarks
+        td
+          = trip.comment
+        td
+          = link_to 'Show', trip
+        td
+          = link_to 'Edit', edit_trip_path(trip)
+        td
+          = link_to 'Destroy', trip, method: :delete, data: { confirm: 'Are you sure?' }
+br
+= link_to 'New Trip', new_trip_path

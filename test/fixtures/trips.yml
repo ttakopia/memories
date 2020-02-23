@@ -1,0 +1,43 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  triptitle: MyString
+  membar: MyString
+  startdate: MyString
+  enddate: MyString
+  place: MyString
+  b-hotel: MyString
+  b-flight: MyString
+  b-food: MyString
+  date: 2020-02-16 11:41:11
+  g-morning: MyString
+  g-lunch: MyString
+  g-dinner: MyString
+  hotelname: MyString
+  starttime: MyString
+  endtime: MyString
+  action: MyString
+  route: MyString
+  remarks: MyString
+  comment: MyText
+
+two:
+  triptitle: MyString
+  membar: MyString
+  startdate: MyString
+  enddate: MyString
+  place: MyString
+  b-hotel: MyString
+  b-flight: MyString
+  b-food: MyString
+  date: 2020-02-16 11:41:11
+  g-morning: MyString
+  g-lunch: MyString
+  g-dinner: MyString
+  hotelname: MyString
+  starttime: MyString
+  endtime: MyString
+  action: MyString
+  route: MyString
+  remarks: MyString
+  comment: MyText

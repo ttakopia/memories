@@ -1,0 +1,73 @@
+f.uk-f-stacked
+= form_with(model: trip, local: true) do |f|
+  - if trip.errors.any?
+    #error_explanation
+      h2
+        = pluralize(trip.errors.count, "error")
+        |  prohibited this trip from being saved:
+      ul
+        - trip.errors.full_messages.each do |message|
+          li
+            = message
+  .uk-section.uk-section-default
+  .uk-container
+    h1.uk-text-bold.uk-margin-bottom.uk-text-center
+      = f.label :triptitle 
+      = f.text_field :triptitle
+    h2.uk-heading-divider
+      | 旅行の概要
+    span.uk-label
+      = f.label :membar
+    .field
+      = f.text_field :membar
+    span.uk-label
+      = f.label :startdate
+    p.uk-margin-bottom
+      = f.text_field :startdate,data: { behavior: "flatpickr-range"} 
+    span.uk-label
+      = f.label :place
+    p.uk-margin-bottom
+      = f.text_field :place
+    span.uk-label
+      | 予算
+    p.uk-margin-bottom
+      = react_component("Autocomp", { trip: @trip })
+  .uk-container
+    h2.uk-heading-divider
+      | 詳細スケジュール
+    p
+      strong
+        | 旅行１日目:
+    span.uk-label.uk-label-success
+      |グルメ
+    p.uk-margin-bottom
+      |　朝ごはん：
+      = f.text_field :gmorning
+    p.uk-margin-bottom
+      |　昼ごはん：
+      = f.text_field :glunch
+    p.uk-margin-bottom
+      |　夜ごはん：
+      = f.text_field :gdinner
+    span.uk-label.uk-label-success
+      | ホテル:
+    p.uk-margin-bottom
+      = f.text_field :hotelname
+    span.uk-label.uk-label-success
+      |タイムスケジュール
+    table.uk-table.uk-table-justify.uk-table-divider
+      = render 'f-hschejule'
+    .field
+      = f.fields_for :schejules do |sform|
+        = render "schejule_fields", f: sform
+      = link_to_add_fields "Add", f, :schejules
+  .field
+    = f.label :comment
+    = f.text_area :comment
+  .uk-section.uk-section-muted
+  .uk-container
+    h2.uk-heading-divider
+      || Photo
+    = f.file_field :images, multiple: true
+  .actions
+    = f.submit

@@ -1,0 +1,23 @@
+/span.uk-badge
+    | メンバー
+/p.uk-margin-bottom
+    = @trip.membar
+span.uk-badge.uk-margin-top
+    = react_component("Box",name:"スケジュール")
+p.uk-margin-bottom
+    = @trip.startdate
+span.uk-badge
+    | 場所
+p.uk-margin-bottom
+    = @trip.place
+span.uk-badge
+    | 予算
+p.uk-margin-bottom
+    |　ホテル：
+    = @trip.bhotel
+p.uk-margin-bottom
+    |　交通費：
+    = @trip.bflight
+p.uk-margin-bottom
+    |　食費　：
+    = @trip.bfood
