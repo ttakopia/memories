@@ -15,6 +15,8 @@ class TripsController < ApplicationController
   # GET /trips/new
   def new
     @trip = Trip.new
+    #@nest = @trip.nests.build
+    #@nest.schejules.build
   end
 
   # GET /trips/1/edit
@@ -69,6 +71,9 @@ class TripsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def trip_params
-      params.require(:trip).permit(:triptitle, :membar, :startdate, :enddate, :place, :bhotel, :bflight, :bfood, :date, :gmorning, :glunch, :gdinner, :hotelname, :starttime, :endtime, :action, :route, :remarks, :comment,schejules_attributes: [:id, :time, :action, :content, :remark, :_destroy],images: [])
+      params.require(:trip).permit(:triptitle, :membar, :startdate, :enddate, :place, :bhotel,
+        :bflight, :bfood, :date, :starttime, :endtime,
+        nests_attributes: [:id, :breakfast,:lunch,:dinner,:hotel,:date,:_destroy,
+        schejules_attributes: [:id, :time, :action, :content,:remark, :_destroy]],images: [])
     end
 end

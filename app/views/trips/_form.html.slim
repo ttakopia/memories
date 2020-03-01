@@ -1,5 +1,5 @@
 f.uk-f-stacked
-= form_with(model: trip, local: true) do |f|
+= form_with(model: trip, local: true)  do |f|
   - if trip.errors.any?
     #error_explanation
       h2
@@ -12,58 +12,48 @@ f.uk-f-stacked
   .uk-section.uk-section-default
   .uk-container
     h1.uk-text-bold.uk-margin-bottom.uk-text-center
-      = f.label :triptitle 
+      = f.label :triptitle
       = f.text_field :triptitle
     h2.uk-heading-divider
       | 旅行の概要
-    span.uk-label
-      = f.label :membar
-    .field
-      = f.text_field :membar
-    span.uk-label
+    label.uk-form-label
+      = f.label :member
+    .uk-form-controls
+      = f.text_field :membar, {class: "uk-input uk-form-width-medium"}
+    label.uk-form-label
       = f.label :startdate
-    p.uk-margin-bottom
-      = f.text_field :startdate,data: { behavior: "flatpickr-range"} 
-    span.uk-label
+    .uk-form-controls
+      = f.text_field :startdate,data: { behavior: "flatpickr-range" }
+    label.uk-form-label
       = f.label :place
-    p.uk-margin-bottom
-      = f.text_field :place
-    span.uk-label
-      | 予算
+    .uk-form-controls
+      = f.text_field :place, {class: "uk-input uk-form-width-medium"}
+    label.uk-form-label
+      | Budget
     p.uk-margin-bottom
       = react_component("Autocomp", { trip: @trip })
   .uk-container
-    h2.uk-heading-divider
+    h2.uk-heading-divider.uk-margin-bottom
       | 詳細スケジュール
-    p
-      strong
-        | 旅行１日目:
-    span.uk-label.uk-label-success
-      |グルメ
-    p.uk-margin-bottom
-      |　朝ごはん：
-      = f.text_field :gmorning
-    p.uk-margin-bottom
-      |　昼ごはん：
-      = f.text_field :glunch
-    p.uk-margin-bottom
-      |　夜ごはん：
-      = f.text_field :gdinner
-    span.uk-label.uk-label-success
-      | ホテル:
-    p.uk-margin-bottom
-      = f.text_field :hotelname
-    span.uk-label.uk-label-success
-      |タイムスケジュール
-    table.uk-table.uk-table-justify.uk-table-divider
-      = render 'f-hschejule'
-    .field
-      = f.fields_for :schejules do |sform|
-        = render "schejule_fields", f: sform
-      = link_to_add_fields "Add", f, :schejules
-  .field
+    /ul.uk-subnav.uk-subnav-pill uk-switcher=""
+      li 
+        a 1日目
+      li 
+        a 2日目
+      li 
+        a 3日目
+    /ul.uk-switcher.uk-margin
+      li
+      li Hello again!
+      li Bazinga!
+  /.field
     = f.label :comment
     = f.text_area :comment
+  #nests
+    = f.fields_for :nests do |nest|
+        = render 'nest_fields',f: nest
+    = link_to_add_association "スケジュールを追加する",f,:nests,
+      {:"data-association-insertion-method" => "append"}
   .uk-section.uk-section-muted
   .uk-container
     h2.uk-heading-divider

@@ -26,6 +26,8 @@ gem 'slim-rails'
 gem 'html2slim'
 # React
 gem 'react-rails'
+# Nested form
+gem 'cocoon'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

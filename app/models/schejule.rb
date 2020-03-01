@@ -1,3 +1,3 @@
 class Schejule < ApplicationRecord
-    belongs_to :trip
+    belongs_to :nest,inverse_of: :schejules
 end

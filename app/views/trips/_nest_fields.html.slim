@@ -1,0 +1,30 @@
+.nested-fields
+    p.uk-badge
+        = f.index
+        | 日目
+    br
+    p.uk-label.uk-label-success
+        |グルメ
+    p.uk-margin-bottom
+        |　朝食：
+        = f.text_field :breakfast
+    p.uk-margin-bottom
+        |　昼食：
+        = f.text_field :lunch
+    p.uk-margin-bottom
+        |　夕食：
+        = f.text_field :dinner
+    span.uk-label.uk-label-success
+        | ホテル:
+    p.uk-margin-bottom
+        = f.text_field :hotel
+    span.uk-label.uk-label-success
+        |タイムスケジュール
+    #schejules
+        table.uk-table.uk-table-small.uk-table-divider
+            = render 'f-hschejule'
+        = f.fields_for :schejules do |schejules|
+            = render "schejule_fields", f: schejules
+        .links
+            = link_to_add_association "タイムスケジュールを追加する",f,:schejules
+    = link_to_remove_association "スケジュールを削除する", f
