@@ -3,7 +3,7 @@ table.uk-table.uk-table-small.uk-table-divider
         tr
             = f.hidden_field :_destroy
             td
-                = f.text_field :time,data: { behavior: "flatpickr-time"},class: "uk-input uk-form-width-small"
+                = f.text_field :time,data: { behavior: "flatpickr-time"},class: ".un uk-input uk-form-width-small"
             td
                 = f.select :action,['移動', '食事', '観光'], {include_blank: '行動'}, class: "uk-input uk-form-width-small"
             td

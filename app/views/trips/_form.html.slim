@@ -24,6 +24,9 @@ f.uk-f-stacked
       = f.label :startdate
     .uk-form-controls
       = f.text_field :startdate,data: { behavior: "flatpickr-range" }
+    #total-price
+    /= react_component("Datepicker", { trip: @trip })
+    #totaldays
     label.uk-form-label
       = f.label :place
     .uk-form-controls
@@ -52,8 +55,9 @@ f.uk-f-stacked
   #nests
     = f.fields_for :nests do |nest|
         = render 'nest_fields',f: nest
-    = link_to_add_association "スケジュールを追加する",f,:nests,
-      {:"data-association-insertion-method" => "append"}
+    .links
+        = link_to_add_association "スケジュールを追加する",f,:nests,
+              {:"data-association-insertion-method" => "append"}
   .uk-section.uk-section-muted
   .uk-container
     h2.uk-heading-divider

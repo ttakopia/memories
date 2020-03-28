@@ -1,40 +1,45 @@
-- @trip.nests.each_with_index do |trip,i|
-    p.uk-margin-bottom
-        = "#{(i + 1)}" + "日目"
-    p.uk-margin-bottom
-        |　朝ごはん：
-        = trip.breakfast
-    p.uk-margin-bottom
-        |　昼ごはん：
-        = trip.lunch
-    p.uk-margin-bottom
-        |　夜ごはん：
-        = trip.dinner
-    span.uk-label.uk-label-success
-        | ホテル:
-    p.uk-margin-bottom
-        = trip.hotel
-    span.uk-label.uk-label-success
-        |タイムスケジュール
-    table.uk-table.uk-table-justify.uk-table-divider
-      thead
-        tr
-          th.uk-width-small
-            | 時間
-          th.uk-width-small
-            | 行動
-          th 
-            | 内容
-          th 
-            | 備考
-      tbody
-        - trip.schejules.each do |trip|
+ul.uk-subnav.uk-subnav-pill uk-switcher=""
+  - @trip.nests.each_with_index do |trip,i|
+      li
+        a.uk-margin-bottom
+          = "#{(i + 1)}" + "日目"
+ul.uk-switcher.uk-margin
+  - @trip.nests.each_with_index do |trip,i|
+    li
+      p.uk-margin-bottom
+          |　朝ごはん：
+          = trip.breakfast
+      p.uk-margin-bottom
+          |　昼ごはん：
+          = trip.lunch
+      p.uk-margin-bottom
+          |　夜ごはん：
+          = trip.dinner
+      span.uk-label.uk-label-success
+          | ホテル:
+      p.uk-margin-bottom
+          = trip.hotel
+      span.uk-label.uk-label-success
+          |タイムスケジュール
+      table.uk-table.uk-table-justify.uk-table-divider
+        thead
           tr
-            td
-              = trip.time
-            td
-              = trip.action
-            td
-              = trip.content
-            td
-              = trip.remark
+            th.uk-width-small
+              | 時間
+            th.uk-width-small
+              | 行動
+            th 
+              | 内容
+            th 
+              | 備考
+        tbody
+          - trip.schejules.each do |trip|
+            tr
+              td
+                = trip.time
+              td
+                = trip.action
+              td
+                = trip.content
+              td
+                = trip.remark

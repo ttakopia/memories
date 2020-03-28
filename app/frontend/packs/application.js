@@ -7,17 +7,55 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require("jquery")
 
 import '../javascript/application'
 import '../stylesheet/application'
-import "cocoon-js"
+import 'cocoon-js'
 
-$(document).ready(function() {
-    $("#nest a.add_fields").
-      data("association-insertion-method", 'append').
-      data("association-insertion-traversal", 'closest').
-      data("association-insertion-node", '#second');
+
+document.addEventListener("turbolinks:load", () => {
+    $('#nests')
+      .on('cocoon:before-insert', function() {
+        $("#owner_from_list").hide();
+        $("#owner a.add_fields").hide();
+      })
+      .on('cocoon:after-insert', function() {
+        console.log('after insert');
+      })
+      .on("cocoon:before-remove", function() {
+        $("#owner_from_list").show();
+        $("#owner a.add_fields").show();
+      })
+      .on("cocoon:after-remove", function() {
+        /* e.g. recalculate order of child items */
+      });
+    $(this).on('cocoon:before-insert', function () {
+        data("association-insertion-method", 'append').
+        data("association-insertion-node", '#nests');
+          console.log('before insert');
+      })
+    $(".links").on('cocoon:after-insert', function () {
+        console.log('after insert');
+    })
+    .on("cocoon:before-remove", function () {
+        console.log('before remove');
+    })
+    .on("cocoon:after-remove", function () {
+        console.log('after remove');
+    });
+   $(".links").on('click', function(){
+    console.log('after remove');
+    flatpickr("[data-behavior='flatpickr-time']", {
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i",
+      })
+      $('.flatpickr-time').flatpickr({
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: "H:i"
+      });
+   });
 });
 
 // Uncomment to copy all static images under ../images to the output folder and reference

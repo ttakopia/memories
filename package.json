@@ -16,9 +16,11 @@
     "flatpickr": "^4.6.3",
     "google-map-react": "^1.1.6",
     "jquery": "^3.4.1",
+    "moment": "^2.24.0",
     "prop-types": "^15.7.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
+    "react": "^16.13.0",
+    "react-dates": "^21.8.0",
+    "react-dom": "^16.13.0",
     "react_ujs": "^2.6.1",
     "turbolinks": "^5.2.0",
     "uikit": "^3.3.1"
