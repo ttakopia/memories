@@ -12,8 +12,7 @@ import '../javascript/application'
 import '../stylesheet/application'
 import 'cocoon-js'
 
-
-document.addEventListener("turbolinks:load", () => {
+$(document).ready(function() {
     $('#nests')
       .on('cocoon:before-insert', function() {
         $("#owner_from_list").hide();
